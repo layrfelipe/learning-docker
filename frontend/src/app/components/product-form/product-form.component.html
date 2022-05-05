@@ -1,0 +1,24 @@
+<h1>List products</h1>
+<button (click)="getAllProducts()">List all products</button>
+<ul *ngIf="showProductList == true">
+    <li *ngFor="let product of products">
+        Produto: {{product.name}} --- Descrição: {{product.description}} --- Preço: {{product.price}}
+    </li>
+</ul>
+
+<h1>Create product</h1>
+<form [formGroup]="productForm" (ngSubmit)="createProduct()">
+    <label>
+        Name:
+        <input type="text" formControlName="name">
+      </label>
+    <label>
+        Description:
+        <input type="text" formControlName="description">
+      </label>
+    <label>
+        Price:
+        <input type="text" formControlName="price">
+      </label>
+    <button type="submit">Register new product</button>
+</form>
